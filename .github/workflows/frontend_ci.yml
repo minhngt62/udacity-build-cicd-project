@@ -15,10 +15,10 @@ jobs:
     - name: Check the Repository
       uses: actions/checkout@v3
 
-    - name: Use Node.js 17
+    - name: Use Node.js 18
       uses: actions/setup-node@v3
       with:
-        node-version: 17
+        node-version: 18
         cache: 'npm'
         cache-dependency-path: starter/frontend/package-lock.json
 
@@ -36,10 +36,10 @@ jobs:
     - name: Check the Repository
       uses: actions/checkout@v3
 
-    - name: Use Node.js 17
+    - name: Use Node.js 18
       uses: actions/setup-node@v3
       with:
-        node-version: 17
+        node-version: 18
         cache: 'npm'
         cache-dependency-path: starter/frontend/package-lock.json
     - name: Install Dependencies
@@ -57,10 +57,10 @@ jobs:
     - name: Check the Repository
       uses: actions/checkout@v3
     
-    - name: Use Node.js 17
+    - name: Use Node.js 18
       uses: actions/setup-node@v3
       with:
-        node-version: 17
+        node-version: 18
         cache: 'npm'
         cache-dependency-path: starter/frontend/package-lock.json
 
