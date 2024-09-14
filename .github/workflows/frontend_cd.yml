@@ -84,8 +84,8 @@ jobs:
         IMAGE_TAG: latest
         REPO_NAME: frontend
       run: |
-        docker build --build-arg=REACT_APP_MOVIE_API_URL=${{ env.REACT_APP_MOVIE_API_URL }} --tag ${{ env.FRONTEND_AWS_ECR_URL }}/$REPO_NAME:$IMAGE_TAG .
-        docker push ${{ env.FRONTEND_AWS_ECR_URL }}/$REPO_NAME:$IMAGE_TAG
+        docker build --build-arg=REACT_APP_MOVIE_API_URL=${{ vars.REACT_APP_MOVIE_API_URL }} --tag ${{ vars.FRONTEND_AWS_ECR_URL }}/$REPO_NAME:$IMAGE_TAG .
+        docker push ${{ vars.FRONTEND_AWS_ECR_URL }}/$REPO_NAME:$IMAGE_TAG
     
     - name: Configure kubeconfig
       run:
@@ -97,5 +97,5 @@ jobs:
         IMAGE_TAG: latest
         REPO_NAME: frontend
       run: |
-          kustomize edit set image frontend=${{ env.FRONTEND_AWS_ECR_URL }}/$REPO_NAME:$IMAGE_TAG
+          kustomize edit set image frontend=${{ vars.FRONTEND_AWS_ECR_URL }}/$REPO_NAME:$IMAGE_TAG
           kustomize build | kubectl apply -f -

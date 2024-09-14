@@ -59,6 +59,7 @@ jobs:
     needs: [Linting, Test]
     runs-on: ubuntu-latest
     environment: Devlopmnet Environment
+    
     steps:
     - name: Check the Repository
       uses: actions/checkout@v3
@@ -80,8 +81,8 @@ jobs:
         IMAGE_TAG: latest
         REPO_NAME: backend
       run: |
-        docker build --build-arg=REACT_APP_MOVIE_API_URL=${{ env.REACT_APP_MOVIE_API_URL }} --tag ${{ env.BACKEND_AWS_ECR_URL }}/$REPO_NAME:$IMAGE_TAG .
-        docker push ${{ env.BACKEND_AWS_ECR_URL }}/$REPO_NAME:$IMAGE_TAG
+        docker build --build-arg=REACT_APP_MOVIE_API_URL=${{ vars.REACT_APP_MOVIE_API_URL }} --tag ${{ vars.BACKEND_AWS_ECR_URL }}/$REPO_NAME:$IMAGE_TAG .
+        docker push ${{ vars.BACKEND_AWS_ECR_URL }}/$REPO_NAME:$IMAGE_TAG
     
     - name: Update kubeconfig
       run:
@@ -93,5 +94,5 @@ jobs:
         IMAGE_TAG: latest
         REPO_NAME: backend
       run: |
-        kustomize edit set image backend=${{ env.BACKEND_AWS_ECR_URL }}/$REPO_NAME:$IMAGE_TAG
+        kustomize edit set image backend=${{ vars.BACKEND_AWS_ECR_URL }}/$REPO_NAME:$IMAGE_TAG
         kustomize build | kubectl apply -f -
