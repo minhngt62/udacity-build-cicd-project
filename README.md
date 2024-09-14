@@ -469,3 +469,7 @@ kustomize build | kubectl apply -f -
 ## License
 
 [License](LICENSE.md)
+
+## App URLs
+- Frontend: [http://ad84fd33821cc42848d6a371c20cbcc1-641201810.us-east-1.elb.amazonaws.com](http://ad84fd33821cc42848d6a371c20cbcc1-641201810.us-east-1.elb.amazonaws.com)
+- Backend: [http://aad2f3ef1894c45a397cdb0a3dd2184e-1849633927.us-east-1.elb.amazonaws.com](http://ad84fd33821cc42848d6a371c20cbcc1-641201810.us-east-1.elb.amazonaws.com)
