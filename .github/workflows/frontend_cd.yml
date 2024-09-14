@@ -1,9 +1,10 @@
 name: Frontend Continuous Deployment
 
 on:
-  push:
+  pull_request:
     branches:
       - main
+    types: [closed]
     paths:
       - 'starter/frontend/**'
   workflow_dispatch: # Allows manual triggering of the workflow
